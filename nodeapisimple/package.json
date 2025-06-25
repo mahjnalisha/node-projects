@@ -1,0 +1,28 @@
+{
+  "name": "api-simple",
+  "version": "1.0.0",
+  "description": "nodejs api connect",
+  "main": "node_modules/.bin/nodemon --exec babel-node src/server.js",
+  "scripts": {
+    "test": "ava",
+    "start": "node_modules/.bin/nodemon --exec babel-node src/server.js"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "connection"
+  ],
+  "author": "alisha",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "http-status-codes": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/node": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "ava": "^6.4.0",
+    "nodemon": "^3.1.10"
+  }
+}
