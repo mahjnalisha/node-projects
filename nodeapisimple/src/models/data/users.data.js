@@ -9,12 +9,12 @@ const users = [
     },
     {
         id: 2,
-        name: 'sonu',
-        email: 'sonu@gmail.com',
+        name: 'salina',
+        email: 'salina@gmail.com',
         city: 'Sydney',
         country: 'Australia',
         gender: 'Female'
     }
-]; sdsdf
+];
 
 export default users;
