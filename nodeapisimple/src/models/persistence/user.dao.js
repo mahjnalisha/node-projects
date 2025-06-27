@@ -13,7 +13,7 @@ const getAll = () => {
 
 const remove = (userId) => {
     const deleteUser = (user, index) => {
-        if (user.id == userId) {
+        if (user?.id == userId) {
             //remove the one of the user array that matches 
             users.splice(index, 1);
             return true;

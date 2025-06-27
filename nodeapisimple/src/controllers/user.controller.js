@@ -1,13 +1,22 @@
 import { StatusCodes } from 'http-status-codes';
 import userService from '../services/user.service';
+import pino from 'pino';
 
+const logger = pino();
 const STATUS = {
     success: "OK",
     failure: "FAILED"
 };
 
+/**
+ * Retrieve all users
+ * @param {*} req 
+ * @param {*} res 
+ * @returns {*}
+ */
 const getAll = (req, res) => {
     const users = userService.getAllUsers();
+    logger.info(`Retrieving all users `);
 
     if (users.length) {
         return res.status(StatusCodes.OK).send(users);
@@ -19,10 +28,15 @@ const getAll = (req, res) => {
     });
 };
 
-
+/**
+ * Add a user
+ * @param {*} req 
+ * @param {*} res 
+ * @returns {*}
+ */
 const addUser = (req, res) => {
     const { body: user } = req;
-    console.log(user);
+    logger.info(`adding new user `);
     const addedUser = userService.addUser(user);
     if (user.name === undefined || !user.name) {
         return res.status(StatusCodes.BAD_REQUEST).send({
@@ -34,15 +48,22 @@ const addUser = (req, res) => {
     else {
         res.status(StatusCodes.CREATED).send({
             status: STATUS.OK,
-            data: user
+            data: addedUser
         });
     }
 
 };
+/**
+ * Retrieve a user
+ * @param req 
+ * @param res 
+ * @returns {*}
+ */
 
 const getUser = (req, res) => {
     const id = parseInt(req.params.id, 10);
     const user = userService.getUser(id);
+    logger.info(`Retriving user id ${id} `);
 
     if (user) {
         return res.status(StatusCodes.OK).send(user);
@@ -56,6 +77,12 @@ const getUser = (req, res) => {
 
 };
 
+/**
+ *  Delete a user
+ * @param {} req 
+ * @param {*} res 
+ * @returns 
+ */
 const removeUser = (req, res) => {
     const { params } = req;
 
@@ -75,7 +102,12 @@ const removeUser = (req, res) => {
     }
 };
 
-
+/**
+ * Update a user 
+ * @param req 
+ * @param  res 
+ * @returns {*}
+ */
 const updateUser = (req, res) => {
     const { body: user } = req;
     const id = parseInt(req.params.id, 10);
