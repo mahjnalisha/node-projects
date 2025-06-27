@@ -1,7 +1,7 @@
 import express from 'express';
-import { StatusCodes } from 'http-status-codes';
+import mainRoutes from './routes';
+import userRoutes from './user.routes';
 
-import appRoutes from './routes';
 
 const app = express();
 const port = 3000;
@@ -12,7 +12,8 @@ const STATUS = {
 
 app.use(express.json());
 
-app.use('/v1', appRoutes);
+app.use('/v1', mainRoutes);
+app.use('/v1/user', userRoutes);
 
 
 app.listen(port, () => {
