@@ -16,7 +16,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^5.1.0",
-    "http-status-codes": "^2.3.0"
+    "express-yup-middleware": "^2.0.0",
+    "http-status-codes": "^2.3.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",

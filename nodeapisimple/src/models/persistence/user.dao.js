@@ -31,7 +31,6 @@ const insert = (details) => {
 };
 
 const updateUser = (userId, newDetails) => {
-    // console.log(newDetails);
     let existingUser = null;
     let userIndex;
 
@@ -54,24 +53,6 @@ const updateUser = (userId, newDetails) => {
     users.splice(userIndex, 1, updatedUser);
     console.log(updatedUser);
     return updatedUser;
-
-    // let exisitingUser = false;
-    // let userIndex;
-    // console.log('userIndex' + newDetails);
-    // users.map((user, index) => {
-    //     if (user.id === newDetails.id) {
-    //         exisitingUser = user;
-    //         userIndex = index;
-    //     }
-    // })
-    // if (!exisitingUser) {
-    //     return false;
-    // }
-    // const updatedUserdata = {
-    //     ...exisitingUser,
-    //     newDetails
-    // }
-    // user.splice(userIndex, 1, updatedUserdata);
 };
 
 
